@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+    <link rel="shortcut icon" href="calculadora.png">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Merienda+One|Quantico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <label type='text' class="titleCalculator">¡CALCULATOR!</label>
+    <label class="historyal" class="fas fa-history">History</label>
+    <button class="historyaldelete" onclick="deleteAllTwo()">x</button>
+    <div class="history" id="history">//</div>
+    <div class='calculator-items'>
+        <div class="windowOfWindow">
+        <label type="text" name="writte" id="writte" class="window" readonly="readonly"></label>
+        </div>
+        <button id='one' class='number' onclick="add('1')" data-number="uno">1</button>
+        <button id='two' class='number' onclick="add('2')" data-number="dos">2</button>
+        <button id='three' class='number' onclick="add('3')" data-number="tres">3</button>
+        <button id='four' class='number' onclick="add('4')" data-number="cuatro">4</button>
+        <button id='five' class='number' onclick="add('5')" data-number="cinco">5</button>
+        <button id='six' class='number' onclick="add('6')" data-number="seis">6</button>
+        <button id='seven' class='number' onclick="add('7')" data-number="siete">7</button>
+        <button id='eight' class='number' onclick="add('8')" data-number="ocho">8</button>
+        <button id='nine' class='number' onclick="add('9')" data-number="nueve">9</button>
+        <button id='cero' class='number' onclick="add('0')" data-number="cero">0</button>
+        <button id='equals' class='number' onclick="add('.')">.</button>
+        <div class = 'column1'>
+        <button id='delete_one' class='simbol5' onclick="delete_one()" data-simbol="mas">←</button>
+        <button id='equals' class='simbol6' onclick="porcent()">%</button>
+        <button id='AC' class='simbol25' onclick="deleteAll()">AC</button>
+        </div>
+        <div class = 'column3'>
+        <button id='plus' name='simbol' class='simbol0' onclick="add('+')" data-simbol="mas">+</button>
+        <button id='minus' name='simbol' class='simbol1' onclick="add('-')" data-simbol="menos">-</button>
+        <button id='equals' name='simbol' class='simbol7' onclick="add('-')">+/-</button>
+        <button id='times' name='simbol' class='simbol3' onclick="add('*')" data-simbol="por">x</button>
+        <button id='dividBy' name='simbol' class='simbol4' onclick="add('/')" data-simbol="dividir">/</button>
+        <button id='raiz' name='simbol' class='simbol8' onclick="raíz()">√</button>
+        <button id='equals' class='simbol2' onclick="imprimirResultado()">=</button>
+    </div>
+    <script src = 'index.js'>
+        /*
+        var operandoa
+        var operandob
+        var operacion
+        var count
+        var writteMinni = document.getElementById('writteTwo')
+        var writte = document.getElementById('writte')
+
+            numero1 = () =>{
+            writte.value = writte.value + '1'
+            }
+
+            numero2 = () => {
+            writte.value = writte.value + '2'
+            }
+
+            numero3 = () => {
+            writte.value = writte.value + '3'
+            }
+
+            numero4 = () => {
+            writte.value = writte.value + '4'
+            }
+
+            numero5 = () => {
+            writte.value = writte.value + '5'
+            }
+
+            numero6 = () => {
+            writte.value = writte.value + '6'
+            }
+
+            numero7 = () => {
+            writte.value = writte.value + '7'
+            }
+
+            numero8 = () => {
+            writte.value = writte.value + '8'
+            }
+
+            numero9 = () => {
+            writte.value = writte.value + '9'
+            }
+
+            numero0 = () => {
+            writte.value = writte.value + '0'
+            }
+
+            decimals = () => {
+            writte.value = writte.value + '.'
+            }
+
+        function pantallaDos() {
+            function j() { 
+            writteMinni.value += writte.value 
+            count = writteMinni.value + writte.value
+            }
+            return j()
+        }
+
+        function plusToMinus() {
+            writte.value = writte.value + '-' 
+        }
+
+        function raíz() {
+            operandoa = writte.value
+            operacion = '√'
+            document.getElementById('writteTwo').value = `squr√(${operandoa})`
+            cont =  Math.sqrt(operandoa)
+            document.getElementById('writte').value = cont
+        }
+
+        function porcent() {
+            operandoa = writte.value
+            operacion = '%'
+            cont = parseFloat(operandoa) / 100
+            document.getElementById('writte').value = cont
+        }
+
+        function delete_one() {
+        }
+
+        function pluster(n) {
+                operandoa = [writte.value]
+                operacion = '+'
+                pantallaDos()
+                writteMinni.value = writteMinni.value + ' + '
+                document.getElementById('writte').value = ''
+                }
+
+        function minus(n) {
+                operandoa = writte.value
+                operacion = '-'
+                pantallaDos()
+                writteMinni.value = writteMinni.value + ' - '
+                document.getElementById('writte').value = ''
+                }
+
+        function timer(n) {
+                operandoa = writte.value
+                operacion = 'x'
+                pantallaDos()
+                writteMinni.value = writteMinni.value + ' x '
+                document.getElementById('writte').value = ''
+                }
+
+        function dividBy(n) {
+                operandoa = writte.value
+                operacion = '/'
+                pantallaDos()
+                writteMinni.value = writteMinni.value + ' / '
+                document.getElementById('writte').value = ''
+                }
+
+        function deletes() {
+            document.getElementById('writte').value = ''
+            document.getElementById('writteTwo').value = ''
+        }
+
+        function imprimirResultados() {
+            resolver()
+        }
+
+        function resolver() {
+            operandob = [writte.value]
+            cont = 0
+            switch(operacion) {
+                case '+':
+                    cont = parseFloat(operandoa) + parseFloat(operandob)
+                    document.getElementById('writte').value = cont
+                break
+                case '-':
+                    cont = parseFloat(operandoa) - parseFloat(operandob)
+                    document.getElementById('writte').value = cont
+                break
+                case 'x':
+                    cont = parseFloat(operandoa) * parseFloat(operandob)
+                    document.getElementById('writte').value = cont
+                break
+                case '/':
+                    cont = parseFloat(operandoa) / parseFloat(operandob)
+                    document.getElementById('writte').value = cont
+                break
+                case '√':
+                    cont =  Math.sqrt(operandoa)
+                    document.getElementById('writte').value = cont
+                break    
+                case '%':
+                    cont = parseFloat(operandoa) / 100
+                    document.getElementById('writte').value = cont
+                break        
+                }
+                writte.textContent = cont;
+        }
+       */
+    </script>
+
+</body>
+</html>
