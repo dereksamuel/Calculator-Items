@@ -12,6 +12,7 @@ function mostrarEnPantalla(login) {
 }
 
 function add(login) {
+    debugger
         mostrarEnPantalla(login)
 }
 
